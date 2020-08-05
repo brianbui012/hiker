@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router({mergeParams: true});
+const router = express.Router({ mergeParams: true });
 
 const Campground = require("../models/campground");
 const Comment = require("../models/comment");
@@ -9,31 +9,35 @@ const Comment = require("../models/comment");
 //=================
 
 //Comments New
-router.get("/new", isLoggedIn, (req,res) => {
+router.get("/new", isLoggedIn, (req, res) => {
   Campground.findById(req.params.id).populate('comments').exec((err, foundCampground) => {
-    if(err){
+    if (err) {
       console.log(err);
     } else {
-      res.render("comments/new", {campground: foundCampground});
+      res.render("comments/new", { campground: foundCampground });
     }
   })
 });
 
 //Comments Create
-router.post("/", (req,res) => {
-  const newText = req.body.comment.text
-  const newAuthor = req.body.comment.author
+router.post("/", (req, res) => {
+  options = { day: '2-digit', month: '2-digit', year: '2-digit' };
+  const today = new Date();
+  const time = today.toLocaleDateString("en-US", options)
+
+  const text = req.body.comment.text;
   // do not have to populate right here because we're just pushing new comment into comment array
-  Campground.findById(req.params.id, (err, foundCampground)=>{
-    if(err){
+  Campground.findById(req.params.id, (err, foundCampground) => {
+    if (err) {
       console.log(err);
     } else {
-      Comment.create(req.body.comment, (err, comment)=>{
-        if(err){
+      Comment.create({ text, time }, (err, comment) => {
+        if (err) {
           console.log(err);
         } else {
           comment.author.id = req.user._id;
           comment.author.username = req.user.username;
+
           comment.save();
           foundCampground.comments.push(comment);
           foundCampground.save();
@@ -42,16 +46,16 @@ router.post("/", (req,res) => {
       });
     }
   });
- });
+});
 
 //Comment Edit
 router.get("/:comment_id/edit", (req, res) => {
-  Comment.findById(req.params.comment_id, (err, foundComment) =>{
-    if(err){
+  Comment.findById(req.params.comment_id, (err, foundComment) => {
+    if (err) {
       res.render("back");
     } else {
       //remember campground_id is not campground._id in the edit form
-      res.render("comments/edit", {campground_id: req.params.id, comment: foundComment});
+      res.render("comments/edit", { campground_id: req.params.id, comment: foundComment });
     }
   });
 });
@@ -60,7 +64,7 @@ router.get("/:comment_id/edit", (req, res) => {
 
 router.put("/:comment_id", checkCommentOwnership, (req, res) => {
   Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, (err, updatedComment) => {
-    if(err){
+    if (err) {
       res.redirect("back");
     } else {
       res.redirect("/campgrounds/" + req.params.id);
@@ -70,7 +74,7 @@ router.put("/:comment_id", checkCommentOwnership, (req, res) => {
 
 router.delete("/:comment_id", checkCommentOwnership, (req, res) => {
   Comment.findByIdAndDelete(req.params.comment_id, (err) => {
-    if(err){
+    if (err) {
       console.log(err);
     } else {
       res.redirect("/campgrounds/" + req.params.id);
@@ -79,31 +83,31 @@ router.delete("/:comment_id", checkCommentOwnership, (req, res) => {
 
 });
 
- function isLoggedIn(req, res, next){
-   if(req.isAuthenticated()){
-     return next();
-   }
-   res.redirect("/login");
- }
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/login");
+}
 
- function checkCommentOwnership(req, res, next){
-   if(req.isAuthenticated()){
-     Comment.findById(req.params.comment_id, (err, foundComment) => {
-       if(err){
-         res.redirect("back");
-       } else {
-         //does the user own the campground?
-         if(foundComment.author.id.equals(req.user._id)) {
-           next();
-         } else {
-           res.redirect("back");
-         }
-       }
-     });
-   } else {
-     res.redirect("back");
-   }
- };
+function checkCommentOwnership(req, res, next) {
+  if (req.isAuthenticated()) {
+    Comment.findById(req.params.comment_id, (err, foundComment) => {
+      if (err) {
+        res.redirect("back");
+      } else {
+        //does the user own the campground?
+        if (foundComment.author.id.equals(req.user._id)) {
+          next();
+        } else {
+          res.redirect("back");
+        }
+      }
+    });
+  } else {
+    res.redirect("back");
+  }
+};
 
 
- module.exports = router;
+module.exports = router;

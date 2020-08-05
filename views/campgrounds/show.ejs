@@ -28,10 +28,10 @@
         <hr>
         <% campground.comments.forEach((comment) => { %>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 thumbnail__username">
             <strong><%= comment.author.username %></strong>
-            <span class='pull-right'>10 Days ago</span>
-            <p>
+            <span class='pull-right'><%=comment.time%></span>
+            <p class="thumbnail__comment">
               <%= comment.text %>
             </p>
             <% if(currentUser && comment.author.id.equals(currentUser.id)){ %>

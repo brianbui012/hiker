@@ -4,6 +4,7 @@ body {
   text-align: center;
 }
 
+
 .container-view {
   max-width: 900px;
   margin: auto;
@@ -25,6 +26,12 @@ body {
   width: 100%;
   border-radius: 1em;
 }
+
+.thumbnail__comment,
+.thumbnail__username {
+  text-align: left;
+}
+
 
 .img {
   width: 600px;
@@ -98,5 +105,11 @@ body {
   margin-bottom: 0.5em;
   line-height: 2em;
   width: 65%;
+  text-align: center;
+}
+
+/* COMMENT */
+
+.comment {
   text-align: center;
 }
