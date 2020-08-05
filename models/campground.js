@@ -5,6 +5,14 @@ const campgroundSchema = new mongoose.Schema({
    name: String,
    image: String,
    description: String,
+   reviewScore: {
+      type: 'Number',
+      validate(value) {
+         if (value > 5) {
+            throw new Error('Review score needs to be less than 5');
+         }
+      },
+   },
    comments: [
       {
          type: mongoose.Schema.Types.ObjectId,

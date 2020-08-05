@@ -4,6 +4,10 @@ body {
   text-align: center;
 }
 
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
 
 .thumbnail {
   border-radius: 1em;
@@ -14,7 +18,7 @@ body {
     0 12.5px 10px rgba(0, 0, 0, 0.05),
     0 22.3px 17.9px rgba(0, 0, 0, 0.052),
     0 41.8px 33.4px rgba(0, 0, 0, 0.066),
-    0 10px 10px rgba(0, 0, 0, 0.08)
+    0 10px 10px rgba(0, 0, 0, 0.08);
 }
 
 .thumbnail img {
@@ -61,4 +65,27 @@ body {
   display: flex;
   justify-content: space-evenly;
   margin-top: 3em;
+}
+
+/* LOGIN */
+
+.login__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.login__form {
+  width: 25em;
+}
+
+.login {
+  display: block;
+  margin: auto;
+  margin-bottom: 0.5em;
+  line-height: 2em;
+  width: 65%;
+  text-align: center;
 }
