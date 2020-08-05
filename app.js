@@ -16,7 +16,9 @@ const campgroundRoutes = require('./routes/campgrounds'),
   authRoutes = require('./routes/index');
 
 
-mongoose.connect("mongodb://localhost:27017/hiker", { useNewUrlParser: true, useUnifiedTopology: true });
+const connectDB = require('./backend/connection')
+connectDB();
+// mongoose.connect("mongodb://localhost:27017/hiker", { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -54,6 +56,8 @@ app.use("/campgrounds", campgroundRoutes);
 //look in route/comments.js {mergeParams:true} in the expressRouter which merges the params of the campgrounds and the comments
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-app.listen(process.env.PORT || 3000, process.env.IP, function () {
-  console.log("The server is working!");
+const port = process.env.PORT || 3000;
+
+app.listen(port, process.env.IP, () => {
+  console.log(`Connected to ${port}`);
 });
