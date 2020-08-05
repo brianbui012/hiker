@@ -4,8 +4,8 @@ body {
   text-align: center;
 }
 
-.container {
-  max-width: 1000px;
+.container-view {
+  max-width: 900px;
   margin: auto;
 }
 
@@ -38,6 +38,17 @@ body {
   padding: 0;
 }
 
+.thumbnail__name {
+  color: #247FA8;
+  font-size: 2em;
+}
+
+.thumbnail__description {
+  font-size: 1.2em;
+  margin-top: 1.5em;
+  padding: 0 2em;
+}
+
 .delete {
   display: inline;
 }
@@ -45,7 +56,7 @@ body {
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav>li>a {
   color: white;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 .navbar-default .navbar-brand {

@@ -1,13 +1,13 @@
 <%- include("../partials/header.ejs") %>
-<div class="container">
+<div class="container-view">
   <div class="row">
     <div class="col-md-12">
       <div class="thumbnail">
         <img class="img-responsive" src="<%= campground.image %>" alt="">
         <div class="caption">
           <h4 class="pull-right"><%=campground.reviewScore%>/5</h4>
-          <h4><a href="#"><%=campground.name%></a></h4>
-          <p><%= campground.description %></p>
+          <h4 class="thumbnail__name"><%=campground.name%></h4>
+          <p class="thumbnail__description"><%= campground.description %></p>
           <p>
             <em>Created By: <%= campground.author.username %></em>
           <div>

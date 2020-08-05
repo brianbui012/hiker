@@ -20,8 +20,8 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <% if(!currentUser){ %>
-          <li><a href="/login">Log In</a></li>
-          <li><a href="/register">Sign Up</a></li>
+          <li><a class="nav__link" href="/login">Log In</a></li>
+          <li><a class="nav__link" href="/register">Sign Up</a></li>
           <% } else { %>
           <li><a>Signed In As <strong class="navbar__user"><%= currentUser.username %></strong></a></li>
           <li><a href="/logout">Log Out</a></li>
