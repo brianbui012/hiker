@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/main.css">
+  <title>Hiker</title>
+</head>
+
+<body>
+
+  <nav class='navbar navbar-default'>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand navbar__item">Hiker</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <% if(!currentUser){ %>
+          <li><a href="/login">Log In</a></li>
+          <li><a href="/register">Sign Up</a></li>
+          <% } else { %>
+          <li><a>Signed In As <strong class="navbar__user"><%= currentUser.username %></strong></a></li>
+          <li><a href="/logout">Log Out</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>

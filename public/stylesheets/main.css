@@ -1,0 +1,64 @@
+body {
+  background-color: #fceed6;
+  font-family: "Roboto";
+  text-align: center;
+}
+
+
+.thumbnail {
+  border-radius: 1em;
+  background-color: #d6e0b8;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.014),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    0 12.5px 10px rgba(0, 0, 0, 0.05),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.052),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.066),
+    0 10px 10px rgba(0, 0, 0, 0.08)
+}
+
+.thumbnail img {
+  width: 100%;
+  border-radius: 1em;
+}
+
+.img {
+  width: 600px;
+}
+
+.navbar__user {
+  letter-spacing: 0.7px;
+}
+
+.thumbnail {
+  padding: 0;
+}
+
+.delete {
+  display: inline;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav>li>a {
+  color: white;
+  font-size: 1.1em;
+}
+
+.navbar-default .navbar-brand {
+  font-size: 1.7em;
+}
+
+.navbar {
+  background-color: #537049;
+}
+
+.jumbotron {
+  background-color: #b2c08b;
+  padding-bottom: 1.5em;
+}
+
+.jumbotron__container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3em;
+}
