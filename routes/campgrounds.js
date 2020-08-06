@@ -43,10 +43,7 @@ router.get('/new', isLoggedIn, (req, res) => {
 
 //Campground Create
 router.post("/", isLoggedIn, (req, res) => {
-  const name = req.body.name;
-  const image = req.body.image;
-  const description = req.body.description;
-  const reviewScore = req.body.reviewScore;
+  const { name, image, description, reviewScore } = req.body;
   const author = {
     id: req.user._id,
     username: req.user.username,
