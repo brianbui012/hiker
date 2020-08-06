@@ -48,7 +48,7 @@ router.post('/login', passport.authenticate("local", {
 //Log Out Logic destroys the session
 router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect("/campgrounds");
+  res.redirect("/login");
 });
 
 function isLoggedIn(req, res, next) {
