@@ -72,6 +72,9 @@ body {
 
 .navbar {
   background-color: #537049;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
 }
 
 .jumbotron {
@@ -92,7 +95,19 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 96vh;
+  background-image: url('../img/national-min.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 20%
+}
+
+.login__title {
+  color: white;
+  border-radius: 3px;
+  padding: 0.2em 0.3em;
+  margin-bottom: 0.5em;
+  font-size: 4.5em;
 }
 
 .login__form {
