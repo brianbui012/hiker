@@ -26,7 +26,6 @@ router.post("/", (req, res) => {
   const time = today.toLocaleDateString("en-US", options)
 
   const text = req.body.comment.text;
-  // do not have to populate right here because we're just pushing new comment into comment array
   Campground.findById(req.params.id, (err, foundCampground) => {
     if (err) {
       console.log(err);
@@ -54,7 +53,6 @@ router.get("/:comment_id/edit", (req, res) => {
     if (err) {
       res.render("back");
     } else {
-      //remember campground_id is not campground._id in the edit form
       res.render("comments/edit", { campground_id: req.params.id, comment: foundComment });
     }
   });

@@ -42,10 +42,10 @@ router.post('/login', passport.authenticate("local", {
   successRedirect: "/campgrounds/me",
   failureRedirect: "/login",
 }), (req, res) => {
-  //nothing needed in this callback function, can remove but this is just to use to show that passport authenticate is a middleware
+
 });
 
-//Log Out Logic destroys the session
+
 router.get('/logout', (req, res) => {
   req.logout();
   res.redirect("/login");

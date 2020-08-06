@@ -14,7 +14,6 @@ const UserSchema = new mongoose.Schema({
     },
   },
   password: String,
-  //technically we do not even use username and password in this model because passport automatically will create an object with username, salt, hash (password).
 });
 
 UserSchema.plugin(passportLocalMongoose);

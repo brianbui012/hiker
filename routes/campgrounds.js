@@ -5,7 +5,6 @@ const router = express.Router();
 const Campground = require("../models/campground");
 //INDEX
 router.get("/", (req, res) => {
-  //Get all campgrounds from db
   Campground.find({}, function (err, allCampgrounds) {
     if (err) {
       console.log(err);
@@ -40,8 +39,6 @@ router.get("/me", isLoggedIn, (req, res) => {
 router.get('/new', isLoggedIn, (req, res) => {
   res.render("campgrounds/new");
 });
-
-//We're going to need the SHOW route to be under the /new route because routes are like IF statements where the first one to catch the query will be ran first. If we had new after :id, campgrounds/new will be caught by the :id function and not /campgrounds/new
 
 
 //Campground Create

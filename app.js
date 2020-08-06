@@ -10,7 +10,6 @@ const express = require("express"),
   Campground = require(__dirname + "/models/campground"),
   Comment = require("./models/comment");
 
-//Router Require // Routes Use is near the bottom
 const campgroundRoutes = require('./routes/campgrounds'),
   commentRoutes = require('./routes/comments'),
   authRoutes = require('./routes/index');
@@ -41,9 +40,8 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-//This is a middle ware to run before all our routes (you can tell by next();)
 app.use((req, res, next) => {
-  //whatever is inside res.locals is availiable in all our templates (kind of like a global variable?)
+  //whatever is inside res.locals is availiable in all our templates (kind of like a global variable)
   res.locals.currentUser = req.user;
   next();
 });
@@ -52,8 +50,6 @@ app.use((req, res, next) => {
 app.use(authRoutes);
 
 app.use("/campgrounds", campgroundRoutes);
-//changing comments like this will cause an error in req.params.id. Our :id param is not making it through to our comment routes
-//look in route/comments.js {mergeParams:true} in the expressRouter which merges the params of the campgrounds and the comments
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 const port = process.env.PORT || 3000;
