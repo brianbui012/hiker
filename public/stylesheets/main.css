@@ -126,5 +126,10 @@ body {
 /* COMMENT */
 
 .comment {
-  text-align: center;
+  text-align: left;
+}
+
+.comment__button {
+  width: 10%;
+  margin: auto;
 }

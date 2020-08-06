@@ -23,7 +23,7 @@
       </div>
       <div class="well">
         <div class="text-right">
-          <a class="btn btn-success" href="/campgrounds/<%=campground._id%>/comments/new">Leave a Review</a>
+          <a class="btn btn-success" href="#review">Leave a Review</a>
         </div>
         <hr>
         <% campground.comments.forEach((comment) => { %>
@@ -46,6 +46,16 @@
         </div>
         <% }); %>
       </div>
+      <!-- COMMENT SECTION -->
+      <form action="/campgrounds/<%= campground._id %>/comments" method="post" id="review">
+        <div class="form-group">
+          <textarea class="form-control comment" name="comment[text]" cols="30" rows="2"
+            placeholder="Comment"></textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-lg btn-primary btn-block comment__button" type="submit">Submit!</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
