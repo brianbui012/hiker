@@ -7,7 +7,7 @@ const User = require("../models/user");
 router.get("/", function (req, res) {
   res.render("login");
 });
-
+// Lets change this to the Sign up page auto matically and at the bottom have "already have an account? Login here" 
 
 //=====================
 //AUTHORIZATION ROUTES
@@ -39,7 +39,7 @@ router.get("/login", (req, res) => {
 
 //Signing In Logic
 router.post('/login', passport.authenticate("local", {
-  successRedirect: "/campgrounds/me",
+  successRedirect: "/campgrounds",
   failureRedirect: "/login",
 }), (req, res) => {
 

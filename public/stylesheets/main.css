@@ -4,7 +4,6 @@ body {
   text-align: center;
 }
 
-
 .container-view {
   max-width: 900px;
   margin: auto;
@@ -13,12 +12,9 @@ body {
 .thumbnail {
   border-radius: 1em;
   background-color: #d6e0b8;
-  box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.014),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.028),
-    0 12.5px 10px rgba(0, 0, 0, 0.05),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.052),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.066),
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.014),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.05),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.052), 0 41.8px 33.4px rgba(0, 0, 0, 0.066),
     0 10px 10px rgba(0, 0, 0, 0.08);
 }
 
@@ -31,7 +27,6 @@ body {
 .thumbnail__username {
   text-align: left;
 }
-
 
 .img {
   width: 600px;
@@ -46,7 +41,7 @@ body {
 }
 
 .thumbnail__name {
-  color: #247FA8;
+  color: #247fa8;
   font-size: 2em;
 }
 
@@ -61,7 +56,7 @@ body {
 }
 
 .navbar-default .navbar-brand,
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-nav > li > a {
   color: white;
   font-size: 1.2em;
 }
@@ -96,10 +91,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 96vh;
-  background-image: url('../img/national-min.jpg');
+  background-image: url("../img/national-min.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 20%
+  background-position: 20%;
 }
 
 .login__title {
@@ -108,6 +103,7 @@ body {
   padding: 0.2em 0.3em;
   margin-bottom: 0.5em;
   font-size: 4.5em;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .login__form {

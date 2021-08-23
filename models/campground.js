@@ -7,11 +7,8 @@ const campgroundSchema = new mongoose.Schema({
    description: String,
    reviewScore: {
       type: 'Number',
-      validate(value) {
-         if (value > 5) {
-            throw new Error('Review score needs to be less than 5');
-         }
-      },
+      min: [1, 'Your review score must be at least 1'],
+      max: [5, 'Your rating cannot be more than 5']
    },
    comments: [
       {

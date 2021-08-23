@@ -1,12 +1,13 @@
 <%- include("partials/header") %>
 
-<div class="login__container">
-  <h1 class="login__title">Login Page</h1>
+  <div class="login__container">
+    <h1 class="login__title">Login Page</h1>
 
-  <form class="login__form" action="/login" method="post">
-    <input class="login" type="text" name="username" placeholder="Email" autocomplete="off">
-    <input class="login" type="password" name="password" placeholder="Password" autocomplete="off">
-    <button class="btn btn-lg btn-success">Login</button>
-  </form>
-</div>
-<%- include("partials/footer") %>
+    <form class="login__form" action="/login" method="post">
+      <input class="login" type="text" name="username" placeholder="Email" autocomplete="off"
+        value="dummyemail@gmail.com">
+      <input class="login" type="password" name="password" value="dnangel1" placeholder="Password" autocomplete="off">
+      <button class="btn btn-lg btn-success">Login</button>
+    </form>
+  </div>
+  <%- include("partials/footer") %>
